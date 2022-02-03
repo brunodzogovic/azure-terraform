@@ -3,6 +3,9 @@
 # This will be used to create break-the-glass accounts, add it to a 
 # group, then add the group to the subscription. 
 
+variable "resource_group_name" {}
+variable "location" {}
+
 resource "azuread_group" "aadgroup-btg" {
   display_name 	   = "aadbtg"
   security_enabled = "true"
@@ -58,8 +61,8 @@ data "azurerm_subscription" "primary" {
 # workspace with Sentinel to define the Analytics Query.
 
 resource "azurerm_resource_group" "example-ra" {
-  name     = "example-resources2"
-  location = "West Europe"
+  name     = var.resource_group_name
+  location = var.location
 }
 
 resource "azurerm_log_analytics_workspace" "example" {
