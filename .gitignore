@@ -1,0 +1,4 @@
+*.bak
+*.terraform.lock.hcl
+*.terraform
+*.tfstate
